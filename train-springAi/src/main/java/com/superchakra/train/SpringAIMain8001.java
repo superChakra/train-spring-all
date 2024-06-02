@@ -1,4 +1,4 @@
-package com.superchakra.train.controller;
+package com.superchakra.train;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

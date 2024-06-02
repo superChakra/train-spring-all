@@ -14,9 +14,9 @@ public class Swagger3Config {
         return GroupedOpenApi.builder().group("用户模块").pathsToMatch("/user/**").build();
     }
     @Bean
-    public GroupedOpenApi CombatApi()
+    public GroupedOpenApi AiApi()
     {
-        return GroupedOpenApi.builder().group("服务模块").pathsToMatch("/combat/**").build();
+        return GroupedOpenApi.builder().group("AI模块").pathsToMatch("/ai/**").build();
     }
     @Bean
     public GroupedOpenApi OtherApi()

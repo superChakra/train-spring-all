@@ -1,0 +1,54 @@
+spring:
+  # springAI配置
+  ai:
+    openai:
+      api-key:
+      base-url:
+      chat:
+        options:
+          model: gpt-4
+
+  # mysql + druid配置
+  datasource:
+    password: 123456
+    username: admin_train
+    url: jdbc:mysql://127.0.0.1:3306/train
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    # 初始化大小、最小、最大
+    initial-size: 5
+    min-idle: 5
+    max-active: 20
+    # 配置获取连接等待超时的时间
+    max-wait: 60000
+    # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+    time-between-eviction-runs-millis: 60000
+    # 配置一个连接在池中最小生存的时间，单位是毫秒
+    min-evictable-idle-time-millis: 300000
+
+
+  # Redis配置
+  data:
+    redis:
+      jedis:
+        pool:
+          enabled: true
+          max-active: 8
+          max-idle: 8
+          max-wait: -1ms
+          min-idle: 0
+          time-between-eviction-runs: 30000
+
+
+# mybatis-plus配置
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    auto-mapping-behavior: full
+    auto-mapping-unknown-column-behavior: warning
+    arg-name-based-constructor-auto-mapping: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    banner: false
+  type-aliases-package: com.superchakra.train.entity
+
