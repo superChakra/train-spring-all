@@ -8,8 +8,11 @@
         <module>train-model</module>
         <module>train-service</module>
         <module>train-test</module>
-        <module>train-springAi</module>
+        <module>train-ai</module>
         <module>train-rabbitMQ</module>
+        <module>train-redis</module>
+        <module>train-consul</module>
+        <module>train-openfeign</module>
     </modules>
 
     <parent>
@@ -31,6 +34,27 @@
 
     <dependencyManagement>
         <dependencies>
+            <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-openfeign -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-openfeign</artifactId>
+                <version>4.1.2</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-consul-config -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-consul-config</artifactId>
+                <version>4.1.1</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-consul-discovery -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-consul-discovery</artifactId>
+                <version>4.1.1</version>
+            </dependency>
+
             <dependency>
                 <groupId>org.springframework.ai</groupId>
                 <artifactId>spring-ai-bom</artifactId>
@@ -105,10 +129,10 @@
                 <artifactId>mysql-connector-j</artifactId>
                 <version>8.4.0</version>
             </dependency>
-            <!-- https://mvnrepository.com/artifact/com.alibaba/druid -->
+            <!-- https://mvnrepository.com/artifact/com.alibaba/druid-spring-boot-starter -->
             <dependency>
                 <groupId>com.alibaba</groupId>
-                <artifactId>druid</artifactId>
+                <artifactId>druid-spring-boot-starter</artifactId>
                 <version>1.2.23</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->

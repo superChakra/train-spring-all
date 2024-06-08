@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: train-test
+  cloud:
+    consul:
+      host: 192.168.154.132
+      port: 8500
+      discovery:
+        service-name: ${spring.application.name}
+        ip-address: 192.168.154.132
+        heartbeat:
+          enabled: true
+        prefer-ip-address: true
+      config:
+        format: yaml
+        profile-separator: '-'
+    openfeign:
+      client:
+        config:
+          default: #全局配置超时时间
+            connectTimeout: 3000  #连接超时时间
+            readTimeout: 3000    #服务超时时间
+
+#          train-consul:  # TODO:对每个模块服务单独配置,如果全局配置和特定配置都在的话，特定配置的内容会覆盖全局配置的内容
+#            connectTimeout: 5000  #连接超时时间
+#            readTimeout: 5000    #服务超时时间
+
+
+
+

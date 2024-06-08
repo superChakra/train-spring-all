@@ -1,6 +1,8 @@
 server:
-  port: 8889
+  port: 8001
 spring:
+  application:
+    name: train-ai
   profiles:
     active: dev
 

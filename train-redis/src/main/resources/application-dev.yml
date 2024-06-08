@@ -22,9 +22,8 @@ spring:
       filters: stat,wall,log4j  # 过滤器，用于监控统计、防SQL注入、日志记录
       connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000  # 连接属性，配置SQL合并和慢SQL记录
 
-
+  # Redis配置
   data:
-    # Redis配置
     redis:
       host: 192.168.154.132
       port: 6379
@@ -36,10 +35,6 @@ spring:
           min-idle: 0
           max-wait: -1ms
       timeout: 6000
-    mongodb:
-      username: root
-      password: root
-      host: 192.168.154.132
 
 
 # mybatis-plus配置

@@ -23,8 +23,8 @@ spring:
       connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000  # 连接属性，配置SQL合并和慢SQL记录
 
 
+  # Redis配置
   data:
-    # Redis配置
     redis:
       host: 192.168.154.132
       port: 6379
@@ -40,7 +40,6 @@ spring:
       username: root
       password: root
       host: 192.168.154.132
-
 
 # mybatis-plus配置
 mybatis-plus:

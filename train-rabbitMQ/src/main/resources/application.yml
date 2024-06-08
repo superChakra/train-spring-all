@@ -1,8 +1,11 @@
 server:
-  port: 8889
+  port: 8002
 spring:
+  application:
+    name: train-rabbitMQ
   profiles:
     active: dev
+
 
 encrypt:
   salt: Qmj9YOYrRc86ub1Z

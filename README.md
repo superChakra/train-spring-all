@@ -18,16 +18,35 @@
 
 [springSecurity](https://docs.spring.io/spring-security/reference/index.html)
 
+[springCloudConsul](https://spring.io/projects/spring-cloud-consul)
 
-#####学习笔记
+[springCloudOpenfeign](https://spring.io/projects/spring-cloud-openfeign)
+
+
+
+##### 学习笔记
 
 [预留位]()
 
-######其他项目链接（练手项目）
+
+
+##### 其他项目链接（练手项目）
 
 [预留位]()
 
 
+
+##### 项目日志
+
+```
+#模块对应的服务端口
+train-test:8889
+train-ai:8001
+train-rabbitMQ:8002
+train-redis:8003
+train-consul:8004
+train-openfeign:8005
+```
 
 
 
