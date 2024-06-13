@@ -1,6 +1,7 @@
 spring:
   application:
     name: train-consul
+
   # springConsul配置
   cloud:
     consul:
@@ -14,5 +15,3 @@ spring:
       config:
         format: yaml
         profile-separator: '-'
-        watch:
-          wait-time: 10

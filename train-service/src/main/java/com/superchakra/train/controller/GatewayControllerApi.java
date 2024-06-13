@@ -5,9 +5,9 @@ import com.superchakra.train.reponse.Result;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/openfeign")
+@RequestMapping("/gateway")
 @CrossOrigin
-public interface OpenfeignControllerApi{
+public interface GatewayControllerApi {
 
     @GetMapping("/hello")
     Result hello();

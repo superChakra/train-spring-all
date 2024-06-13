@@ -1,0 +1,49 @@
+spring:
+  application:
+    name: train-circuit
+  cloud:
+    consul:
+      host: 192.168.154.132
+      port: 8500
+      discovery:
+        service-name: ${spring.application.name}
+        ip-address: 192.168.154.132
+        heartbeat:
+          enabled: true
+        prefer-ip-address: true
+      config:
+        format: yaml
+        profile-separator: '-'
+
+    openfeign:
+      # TODO:开启断路器，并配置断路器实例的ID使用字母数字混合的模式，默认是只包含数字
+      circuitbreaker:
+        enabled: true
+        alphanumeric-ids:
+          enabled: true
+      client:
+        refresh-enabled: true # 启用刷新行为
+        config:
+          default: #全局配置超时时间
+            connectTimeout: 3000  #连接超时时间
+            readTimeout: 3000    #服务超时时间
+
+# TODO: circuit Breaker 配置
+resilience4j:
+  circuitbreaker:
+    instances:
+      train-cloud:
+        register-health-indicator: true
+        failure-rate-threshold: 50 #失败率阈值
+        sliding-window-type: count_based #使用请求此时来判断是否使用断路器
+        sliding-window-size: 10 #选取最近的多少条结果来判断是否开启断路器
+        minimum-number-of-calls: 10 #决定多少次请求后才决定是否启用断路器
+        automatic-transition-from-open-to-half-open-enabled: true # 启用半开模式
+        wait-duration-in-open-state:
+          seconds: 5 #从打开模式到半开模式的等待时间
+        permitted-number-of-calls-in-half-open-state: 3 #半开模式下允许调用服务的次数
+        record-exceptions: #定义了当断路器跟踪调用结果时应记录的异常类型。
+          - java.lang.Exception
+          - java.lang.RuntimeException
+
+

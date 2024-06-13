@@ -1,19 +1,13 @@
 package com.superchakra.train.controller;
 
-import com.superchakra.train.reponse.Result;
-import jakarta.annotation.Resource;
-import org.springframework.web.bind.annotation.RestController;
+import java.time.ZonedDateTime;
+import java.util.UUID;
 
-@RestController
-public class TestController implements TestControllerApi{
+public class TestController{
 
-
-    @Resource
-    private OpenfeignControllerApi openfeignControllerApi;
-
-    @Override
-    public Result hello() {
-        return openfeignControllerApi.hello();
+    public static void main(String[] args) {
+        System.out.println(ZonedDateTime.now());
+        System.out.println(UUID.randomUUID().toString().replaceAll("-", ""));
     }
 
 }

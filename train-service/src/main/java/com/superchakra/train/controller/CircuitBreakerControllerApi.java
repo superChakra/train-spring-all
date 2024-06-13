@@ -1,18 +1,19 @@
 package com.superchakra.train.controller;
 
-
 import com.superchakra.train.reponse.Result;
 import org.springframework.web.bind.annotation.*;
 
+
 @RestController
-@RequestMapping("/openfeign")
+@RequestMapping("/circuit")
 @CrossOrigin
-public interface OpenfeignControllerApi{
+public interface CircuitBreakerControllerApi {
 
     @GetMapping("/hello")
     Result hello();
 
     @GetMapping("/code")
     Result code(@RequestParam("id") String id);
+
 
 }

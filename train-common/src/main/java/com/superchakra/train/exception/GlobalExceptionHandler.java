@@ -34,6 +34,7 @@ public class GlobalExceptionHandler {
       logger.error("密码哈希加密错误：{}", e.getMessage());
         return e.getMessage();
     }
+
     @ExceptionHandler(RuntimeException.class)
     public String runtimeException(Exception e) {
         logger.error("用户超时了:"+ e.getMessage());

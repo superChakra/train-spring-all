@@ -1,0 +1,51 @@
+spring:
+  application:
+    name: train-gateway
+  cloud:
+    consul:
+      host: 192.168.154.132
+      port: 8500
+      discovery:
+        service-name: ${spring.application.name}
+        ip-address: 192.168.154.132
+        heartbeat:
+          enabled: true
+        prefer-ip-address: true
+      config:
+        format: yaml
+        profile-separator: '-'
+
+ # TODO:springCloud网关的配置
+  gateway:
+    routes:
+      - id: train-consul-hello
+        uri:
+          http://localhost:8004
+        predicates:
+          - After=2024-06-11T20:51:42.575821400+08:00[Asia/Shanghai]  # 路由只会在这个日期和时间之后匹配。
+          - Before=2024-06-11T20:51:42.575821400+08:00[Asia/Shanghai]  # 路由只会在这个日期和时间之前匹配。
+          - Between=2024-06-11T20:51:42.575821400+08:00[Asia/Shanghai], 2024-06-11T20:51:42.575821400+08:00[Asia/Shanghai]  # 路由只会在这两个日期和时间之间匹配。
+          - Cookie=cookie, cookieValue  # 如果请求中包含名为 'cookie' 且值为 'cookieValue' 的 cookie，路由才会匹配。
+          - Header=userId, [a-f0-9]{32}  # 如果请求中包含 'userId' 头且其值符合正则表达式，路由才会匹配。
+          - Host=**.superchakra.com  # 如果请求的主机匹配 '**.superchakra.com'路由才会匹配。
+          - Method=GET,POST  # 如果请求方法是 GET 或 POST，路由才会匹配。
+          - Path=/consul/hello  # 如果请求路径是 '/consul/hello'，路由才会匹配。
+
+      - id: train-consul-code
+        uri:
+          http://localhost:8004
+        predicates:
+          - After=2024-06-11T20:51:42.575821400+08:00[Asia/Shanghai]  # 路由只会在这个日期和时间之后匹配。
+          - Before=2024-06-11T20:51:42.575821400+08:00[Asia/Shanghai]  # 路由只会在这个日期和时间之前匹配。
+          - Between=2024-06-11T20:51:42.575821400+08:00[Asia/Shanghai], 2024-06-11T20:51:42.575821400+08:00[Asia/Shanghai]  # 路由只会在这两个日期和时间之间匹配。
+          - Cookie=cookie, cookieValue  # 如果请求中包含名为 'cookie' 且值为 'cookieValue' 的 cookie，路由才会匹配。
+          - Header=userId, [a-f0-9]{32}  # 如果请求中包含 'userId' 头且其值符合正则表达式，路由才会匹配。
+          - Host=**.superchakra.com  # 如果请求的主机匹配 '**.superchakra.com'路由才会匹配。
+          - Method=GET,POST  # 如果请求方法是 GET 或 POST，路由才会匹配。
+          - Path=/consul/code  # 如果请求路径是 '/consul/code'，路由才会匹配。
+
+
+
+
+
+

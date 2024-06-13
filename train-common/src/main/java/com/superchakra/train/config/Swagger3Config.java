@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class Swagger3Config {
     @Bean
-    public GroupedOpenApi PayApi()
+    public GroupedOpenApi UserApi()
     {
         return GroupedOpenApi.builder().group("用户模块").pathsToMatch("/user/**").build();
     }
@@ -21,17 +21,18 @@ public class Swagger3Config {
     @Bean
     public GroupedOpenApi ConsulApi()
     {
-        return GroupedOpenApi.builder().group("consul模块").pathsToMatch("/consul/**").build();
+        return GroupedOpenApi.builder().group("cloud模块").pathsToMatch("/cloud/**").build();
     }
     @Bean
     public GroupedOpenApi TestApi()
     {
         return GroupedOpenApi.builder().group("test模块").pathsToMatch("/test/**").build();
     }
+
     @Bean
     public GroupedOpenApi OtherApi()
     {
-        return GroupedOpenApi.builder().group("其它模块").pathsToMatch("/other/**", "/others").build();
+        return GroupedOpenApi.builder().group("其它模块").pathsToMatch("/other/**").build();
     }
     @Bean
     public OpenAPI docsOpenApi()

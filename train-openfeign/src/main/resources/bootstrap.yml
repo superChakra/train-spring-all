@@ -1,6 +1,7 @@
 spring:
   application:
     name: train-openfeign
+    # TODO: 服务的注册与发现
   cloud:
     consul:
       host: 192.168.154.132
@@ -14,3 +15,22 @@ spring:
       config:
         format: yaml
         profile-separator: '-'
+
+    openfeign:
+      compression:
+        request:
+          enabled: true #开启请求压缩,并使用默认的配置
+      client:
+        refresh-enabled: true # 启用刷新行为
+        config:
+          default: #全局配置超时时间
+            connectTimeout: 3000  #连接超时时间
+            readTimeout: 3000    #服务超时时间
+
+          # TODO:对每个模块服务单独配置,如果全局配置和特定配置都在的话，特定配置的内容会覆盖全局配置的内容
+#          train-openfeign:
+#            connectTimeout: 3000  #连接超时时间
+#            readTimeout: 3000    #服务超时时间
+
+
+

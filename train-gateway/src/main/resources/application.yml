@@ -1,0 +1,18 @@
+server:
+  port: 8007
+spring:
+  profiles:
+    active: dev
+
+encrypt:
+  salt: Qmj9YOYrRc86ub1Z
+
+jwt:
+  expiration: 5184000   #一个小时有效
+  secret: 6rQhjE6d7nK27vkB5AteQ7ZWUa77E0g8HYcOe1FbL7lmDVSYdRiMM9VtriiLKig4
+  issuer: com.superchakra
+
+
+aliyun:
+  access-key-id:
+  access-key-secret:
